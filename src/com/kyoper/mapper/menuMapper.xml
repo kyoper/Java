@@ -2,10 +2,12 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kyoper.mapper.menuMapper">
 	<resultMap type="menu" id="mymap">
-		<id column="id" property="id"/>
-		<collection property="menuList" select="com.kyoper.mapper.menuMapper.selByPid" column="id"></collection>
+		<id column="id" property="id" />
+		<collection property="menuList"
+			select="com.kyoper.mapper.menuMapper.selByPid" column="id"></collection>
 	</resultMap>
 	<select id="selByPid" parameterType="int" resultMap="mymap">
-		select * from menu where pid=#{0}
+		select *
+		from menu where pid=#{0}
 	</select>
 </mapper>
